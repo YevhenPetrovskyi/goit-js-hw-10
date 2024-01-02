@@ -8,28 +8,27 @@ form.addEventListener('submit', event => {
   const time = form.elements.delay.value;
   const state = form.elements.state.value;
 
-  if (time < 0) {
-    iziToast.show({
-      icon: 'icon-false',
-      backgroundColor: '#FC5A5A',
-      message: `Delay cannot be negative`,
-      messageColor: '#FAFAFB',
-      messageSize: '16px',
-      position: 'topCenter',
-      close: false,
-      closeOnClick: true,
-    });
-    return;
-  }
+  // if (time < 0) {
+  //   iziToast.show({
+  //     icon: 'icon-false',
+  //     backgroundColor: '#FC5A5A',
+  //     message: `Delay cannot be negative`,
+  //     messageColor: '#FAFAFB',
+  //     messageSize: '16px',
+  //     position: 'topCenter',
+  //     close: false,
+  //     closeOnClick: true,
+  //   });
+  //   return;
+  // }
 
   function promise() {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         if (state === 'fulfilled') {
           resolve();
-        } else {
-          reject();
         }
+        reject();
       }, time);
     });
   }
